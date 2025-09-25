@@ -18,14 +18,14 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
           },
         },{id: "nav-teaching",
           title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
@@ -57,8 +57,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-after-a-successful-research-retreat-in-paris-in-late-july-i-will-be-co-organizing-with-gareth-roberts-and-filippo-pagani-the-acceleration-week-in-warwick-in-september-for-the-ocean-erc-project-this-event-will-bring-together-researchers-from-various-institutions-to-discuss-advancements-in-sampling-methods-and-their-applications-looking-forward-to-an-exciting-week-of-collaboration-and-learning",
-          title: 'After a successful research retreat in Paris in late July, I will be...',
+            },},{id: "news-after-a-successful-research-retreat-in-paris-i-will-co-organize-the-acceleration-week-in-warwick-in-september-for-the-ocean-erc-project-bringing-together-researchers-to-discuss-advancements-in-sampling-methods-excited-for-a-week-of-collaboration",
+          title: 'After a successful research retreat in Paris, I will co-organize the Acceleration Week...',
           description: "",
           section: "News",},{
         id: 'social-bluesky',
