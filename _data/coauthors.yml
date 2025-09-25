@@ -1,13 +1,13 @@
 "roberts":
-  - firstname: ["Gareth", "Gareth Roberts", "Gareth O. Roberts", "G. O. Roberts", "Prof. Gareth Roberts"]
+  - firstname: ["Gareth", "Gareth Roberts", "Gareth O. Roberts", "G. O. Roberts", "Prof. Gareth Roberts", "Roberts, Gareth O."]
     url: https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/roberts/
 
 "tawn":
-  - firstname: ["Nick", "Nick Tawn", "Nick G. Tawn", "N. G. Tawn", "Dr. Nick Tawn", "Dr. Nick G. Tawn", "Nicholas Tawn", "Nicholas G. Tawn"]
+  - firstname: ["Nick", "Nick Tawn", "Nick G. Tawn", "N. G. Tawn", "Dr. Nick Tawn", "Dr. Nick G. Tawn", "Nicholas Tawn", "Nicholas G. Tawn", "Tawn, Nicholas G."]
     url: https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/tawn/
 
 "moores":
-  - firstname: ["Matthew", "Matthew Moores", "Matthew T. Moores"]
+  - firstname: ["Matthew", "Matthew Moores", "Matthew T. Moores", "Moores, Matthew T."]
     url: https://scholar.google.com/citations?user=NMcnykkAAAAJ&hl=en
 
 
