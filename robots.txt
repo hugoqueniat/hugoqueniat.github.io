@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://hugoqueniat.github.io/sitemap.xml
