@@ -6,7 +6,7 @@
     - name: Languages
       value: French, English, Spanish
     - name: Contact
-      value: <span style="font-family:'Lucida Console', monospace">Hugo dot Queniat <at> warwick dot ac dot uk</span>
+      value: <span style="font-family:'Lucida Console', monospace">Hugo dot Queniat at warwick dot ac dot uk</span>
 
 - title: Education
   type: time_table
@@ -26,7 +26,7 @@
       institution : Télécom Paris, France
       year: 2021-2024
       description:
-        - Tracks: Random Modelling & Scientific Computing; Signal Processing for AI.
+        - Random Modelling & Scientific Computing; Signal Processing for AI.
 
 - title: Other Interests
   type: list
