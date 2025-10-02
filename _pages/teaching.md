@@ -7,5 +7,9 @@ nav: true
 nav_order: 6
 ---
 
+### [University of Warwick, Department of Statistics](https://warwick.ac.uk/fac/sci/statistics/)
+Graduate Teaching Assistant for undergraduate courses 2025-Present:
+25/26 Term 1 : ST120 - Introduction to Probability
+
 ### [CPGE Janson de Sailly](https://www.janson-de-sailly.fr/)
 Teaching assistant for undergraduate mathematics courses (2022-2023).
