@@ -125,6 +125,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
   </ul></li>
+  <li><a href="#statistical-estimation" id="toc-statistical-estimation" class="nav-link" data-scroll-target="#statistical-estimation">3. Statistical Estimation</a>
+  <ul class="collapse">
+  <li><a href="#a-derivation-of-mle-for-multivariate-gaussian" id="toc-a-derivation-of-mle-for-multivariate-gaussian" class="nav-link" data-scroll-target="#a-derivation-of-mle-for-multivariate-gaussian">(a) Derivation of MLE for Multivariate Gaussian</a></li>
+  <li><a href="#b-exponential-family-mle" id="toc-b-exponential-family-mle" class="nav-link" data-scroll-target="#b-exponential-family-mle">(b) Exponential Family MLE</a></li>
+  <li><a href="#c-mixture-of-gaussian-mog-mle" id="toc-c-mixture-of-gaussian-mog-mle" class="nav-link" data-scroll-target="#c-mixture-of-gaussian-mog-mle">(c) Mixture of Gaussian (MoG) MLE</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -173,7 +179,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
 <p><strong>Recommended Packages to Install:</strong> You should install useful packages: <code>sklearn</code>, <code>torch</code>, <code>torchvision</code>, <code>PIL</code>, <code>rpy2</code>.</p>
 <p>You can install these via Anaconda Prompt/Terminal using the following commands:</p>
-<div id="127696de" class="cell" data-execution_count="1">
+<div id="aa533b5d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic install command</span></span>
@@ -193,7 +199,7 @@ window.Quarto = {
 <section id="install-jupyter" class="level3">
 <h3 class="anchored" data-anchor-id="install-jupyter">Install Jupyter</h3>
 <p><code>Jupyter lab</code> or <code>Jupyter notebook</code> will be used for demonstration. If not included (e.g.&nbsp;you used miniconda to start with), you need to install them manually, e.g.</p>
-<div id="16a35c11" class="cell" data-execution_count="2">
+<div id="c9d08e9c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge jupyterlab</span>
@@ -202,12 +208,12 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>jupyter lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>, simply type jupyter lab in your terminal. Some useful shortcut keys when operating in Jupyter notebook can be found (interactively with demo) <a href="https://mljar.com/blog/jupyter-notebook-shortcuts-cheatsheet/">here</a>.</p>
+<p>Some useful shortcut keys when operating in Jupyter notebook can be found (interactively with demo) <a href="https://mljar.com/blog/jupyter-notebook-shortcuts-cheatsheet/">here</a>.</p>
 </section>
 <section id="handling-different-projects" class="level3">
 <h3 class="anchored" data-anchor-id="handling-different-projects">Handling different projects</h3>
 <p>For a different project, a separate virtual enviroment that contains necessary packages and their corresponding version can be helpful. To create a virtual environment,</p>
-<div id="2e3cfcb6" class="cell" data-execution_count="3">
+<div id="6cc95109" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conda update conda</span>
@@ -302,6 +308,154 @@ M = U D U^T
 \]</span> where <span class="math inline">\(U\)</span> is orthonormal and <span class="math inline">\(D\)</span> is diagonal.<br>
 The diagonal entries of <span class="math inline">\(D\)</span> are the eigenvalues of <span class="math inline">\(M\)</span>, and the columns of <span class="math inline">\(U\)</span> are the eigenvectors of <span class="math inline">\(M\)</span>.</p></li>
 </ul>
+</section>
+</section>
+<section id="statistical-estimation" class="level1">
+<h1>3. Statistical Estimation</h1>
+<section id="a-derivation-of-mle-for-multivariate-gaussian" class="level3">
+<h3 class="anchored" data-anchor-id="a-derivation-of-mle-for-multivariate-gaussian">(a) Derivation of MLE for Multivariate Gaussian</h3>
+<ul>
+<li>Given <span class="math inline">\(n\)</span> independent and identically distributed (i.i.d.) observations <span class="math inline">\(x_1, \dots, x_n \in \mathbb{R}^d\)</span>, derive the Maximum Likelihood Estimator (MLE) for a Gaussian distribution <span class="math inline">\(\mathcal{N}(\mu, \Sigma)\)</span>,</li>
+</ul>
+<p><span class="math display">\[
+p_{\mu, \Sigma}(x) = \frac{1}{\sqrt{(2\pi)^d |\Sigma|}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: The Log-Likelihood</strong> The likelihood function is the product of individual densities (i.i.d. observations): <span class="math display">\[
+L(\mu, \Sigma) = \prod_{i=1}^n \frac{1}{\sqrt{(2\pi)^d |\Sigma|}} \exp \left( -\frac{1}{2} (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) \right)
+\]</span></p>
+<p>We want to maximize the log-likelihood <span class="math inline">\(\mathcal{L}(\mu, \Sigma) = \ln L(\mu, \Sigma)\)</span>: <span class="math display">\[
+\begin{aligned}
+\mathcal{L}(\mu, \Sigma) &amp;= \sum_{i=1}^n \left( -\frac{d}{2}\ln(2\pi) - \frac{1}{2}\ln|\Sigma| - \frac{1}{2}(x_i - \mu)^T \Sigma^{-1} (x_i - \mu) \right) \\
+&amp;= -\frac{nd}{2}\ln(2\pi) - \frac{n}{2}\ln|\Sigma| - \frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} (x_i - \mu)
+\end{aligned}
+\]</span></p>
+<p><strong>Step 2: MLE for <span class="math inline">\(\mu\)</span></strong> To find <span class="math inline">\(\hat{\mu}\)</span>, take the derivative w.r.t <span class="math inline">\(\mu\)</span> and set to 0. We use the fact that <span class="math inline">\(\nabla_\mu (x - \mu)^T \Sigma^{-1} (x - \mu) = -2\Sigma^{-1}(x - \mu)\)</span> (covariance matrix <span class="math inline">\(\Sigma\)</span> is symmetric):</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mu} = -\frac{1}{2} \sum_{i=1}^n \left( -2 \Sigma^{-1} (x_i - \mu) \right) = \Sigma^{-1} \sum_{i=1}^n (x_i - \mu) = 0
+\]</span></p>
+<p>Since <span class="math inline">\(\Sigma^{-1}\)</span> is positive definite, the sum term must be zero: <span class="math display">\[
+\sum_{i=1}^n x_i - n\mu = 0 \implies \hat{\mu}_{\text{MLE}} = \frac{1}{n} \sum_{i=1}^n x_i
+\]</span></p>
+<p><strong>Step 3: MLE for <span class="math inline">\(\Sigma\)</span></strong> To find <span class="math inline">\(\hat{\Sigma}\)</span>, we differentiate w.r.t <span class="math inline">\(\Sigma\)</span>. First, rewrite the sum using the trace trick <span class="math inline">\(\text{tr}(x^T A x) = \text{tr}(A x x^T)\)</span>: <span class="math display">\[
+\sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = \text{tr}\left( \Sigma^{-1} \sum_{i=1}^n (x_i - \mu)(x_i - \mu)^T \right)
+\]</span></p>
+<p>Using matrix calculus identities <span class="math inline">\(\frac{\partial \ln|\Sigma|}{\partial \Sigma} = \Sigma^{-1}\)</span> and <span class="math inline">\(\frac{\partial \text{tr}(\Sigma^{-1} S)}{\partial \Sigma} = -\Sigma^{-1} S \Sigma^{-1}\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \Sigma} = -\frac{n}{2}\Sigma^{-1} + \frac{1}{2} \Sigma^{-1} \left( \sum_{i=1}^n (x_i - \mu)(x_i - \mu)^T \right) \Sigma^{-1} = 0
+\]</span></p>
+<p>Multiply by <span class="math inline">\(\Sigma\)</span> on both sides to isolate the term: <span class="math display">\[
+-n \Sigma + \sum_{i=1}^n (x_i - \mu)(x_i - \mu)^T = 0
+\]</span></p>
+<p>Substituting <span class="math inline">\(\hat{\mu}\)</span> for <span class="math inline">\(\mu\)</span>: <span class="math display">\[
+\hat{\Sigma}_{\text{MLE}} = \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="b-exponential-family-mle" class="level3">
+<h3 class="anchored" data-anchor-id="b-exponential-family-mle">(b) Exponential Family MLE</h3>
+<ul>
+<li>Consider the Exponential Family distribution, parametrised by <span class="math inline">\(\theta \in \mathbb{R}^d\)</span> <span class="math display">\[
+  p_{\theta}(x)=\frac{1}{Z(\theta)}\exp\{\sum_{i\in[d]}\theta_{i}T_{i}(x)\}, \quad (2)
+  \]</span> where <span class="math inline">\(T_{i}(x)\in\mathbb{R}\)</span> are scalar-valued sufficient statistics. Derive (as much as possible) the MLE for i.i.d. observation <span class="math inline">\(x_{1},...,x_{n}.\)</span> (May not be in closed form)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: The Log-Likelihood</strong> The likelihood for <span class="math inline">\(n\)</span> observations is the product of individual densities: <span class="math display">\[
+L(\theta) = \prod_{j=1}^n p_{\theta}(x_j) = \prod_{j=1}^n \frac{1}{Z(\theta)} \exp \left\{ \sum_{i=1}^d \theta_i T_i(x_j) \right\}
+\]</span> <em>(Note: To avoid confusion with indices, we use <span class="math inline">\(j\)</span> to index the <span class="math inline">\(n\)</span> observations and <span class="math inline">\(i\)</span> to index the <span class="math inline">\(d\)</span> parameters)</em>.</p>
+<p>Taking the log-likelihood <span class="math inline">\(\ell(\theta) = \ln L(\theta)\)</span>: <span class="math display">\[
+\begin{aligned}
+\ell(\theta) &amp;= \sum_{j=1}^n \left( -\ln Z(\theta) + \sum_{i=1}^d \theta_i T_i(x_j) \right) \\
+&amp;= -n \ln Z(\theta) + \sum_{j=1}^n \sum_{i=1}^d \theta_i T_i(x_j) \\
+&amp;= -n \ln Z(\theta) + \sum_{j=1}^n \theta^T \mathbf{T}(x_j)
+\end{aligned}
+\]</span> where <span class="math inline">\(\mathbf{T}(x)\)</span> is the vector of sufficient statistics <span class="math inline">\([T_1(x), \dots, T_d(x)]^T\)</span>.</p>
+<p><strong>Step 2: The Gradient</strong> To find the maximum, we take the gradient with respect to the parameter vector <span class="math inline">\(\theta\)</span>. <span class="math display">\[
+\nabla_\theta \ell(\theta) = -n \nabla_\theta \ln Z(\theta) + \sum_{j=1}^n \mathbf{T}(x_j)
+\]</span></p>
+<p><strong>Step 3: Analyzing <span class="math inline">\(\nabla_\theta \ln Z(\theta)\)</span></strong> Recall that the partition function is <span class="math inline">\(Z(\theta) = \int \exp(\theta^T \mathbf{T}(x)) dx\)</span>. The gradient of the log-partition function is the expected value of the sufficient statistics (a standard property of exponential families):</p>
+<p><span class="math display">\[
+\nabla_\theta \ln Z(\theta) = \frac{1}{Z(\theta)} \nabla_\theta Z(\theta) = \mathbb{E}_\theta[\mathbf{T}(x)]
+\]</span></p>
+<p><strong>Step 4: Setting the Gradient to Zero</strong> Substituting this back into the derivative equation and setting to 0:</p>
+<p><span class="math display">\[
+-n \mathbb{E}_{\hat{\theta}}[\mathbf{T}(x)] + \sum_{j=1}^n \mathbf{T}(x_j) = 0
+\]</span></p>
+<p>Rearranging the terms and dividing by <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{E}_{\hat{\theta}}[\mathbf{T}(x)] = \frac{1}{n} \sum_{j=1}^n \mathbf{T}(x_j)
+\]</span></p>
+<p><strong>Conclusion:</strong> The MLE <span class="math inline">\(\hat{\theta}\)</span> satisfies the condition that the <strong>model expectation</strong> of the sufficient statistics equals the <strong>empirical average</strong> of the sufficient statistics from the data.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="c-mixture-of-gaussian-mog-mle" class="level3">
+<h3 class="anchored" data-anchor-id="c-mixture-of-gaussian-mog-mle">(c) Mixture of Gaussian (MoG) MLE</h3>
+<ul>
+<li>Consider Mixture of Gaussian (MoG) example in Example 1.1.1, with a set of <span class="math inline">\(k\)</span> Normal distriubtions with <span class="math inline">\(\mathcal{N}(\mu_{i},\Sigma_{i})\)</span> where <span class="math inline">\(i\in[k]\)</span>; and <span class="math inline">\(\pi_{i}\ge0\)</span> s.t. <span class="math inline">\(\sum_{i}\pi_{i}=1\)</span>. The MoG model has density of the form <span class="math display">\[
+p(x)=\sum_{i\in[k]}\pi_{i}\mathcal{N}(\mu_{i},\Sigma_{i}) \quad (3)
+\]</span> Let <span class="math inline">\(x_{1},...,x_{n}\)</span> be the observed samples, can we derive the MLE for <span class="math inline">\(\pi_{i},\mu_{i},\Sigma_{i},\)</span> for <span class="math inline">\(i\in[k]?\)</span> If not what we may do?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: The Log-Likelihood</strong> Given independent samples <span class="math inline">\(x_1, \dots, x_n\)</span>, the log-likelihood is: <span class="math display">\[
+\ell(\Theta) = \sum_{j=1}^n \ln p(x_j) = \sum_{j=1}^n \ln \left( \sum_{i=1}^k \pi_i \mathcal{N}(x_j | \mu_i, \Sigma_i) \right)
+\]</span></p>
+<p><strong>Step 2: The Problem (Why we can’t derive closed-form MLE)</strong> If we try to take the derivative with respect to <span class="math inline">\(\mu_i\)</span> and set it to 0, we encounter a problem. Unlike the single Gaussian case, the logarithm <strong>cannot</strong> be pushed inside the summation. <span class="math display">\[
+\ln \left( \sum \dots \right) \neq \sum \ln (\dots)
+\]</span> This means the <span class="math inline">\(\ln\)</span> does not cancel out the <span class="math inline">\(\exp\)</span> inside the Gaussian. The derivative results in a complex non-linear system where the parameters for all components are coupled together.</p>
+<p><strong>Step 3: What can we do? (The EM Algorithm)</strong> Since a closed-form solution is impossible, we typically use the <strong>Expectation-Maximization (EM) Algorithm</strong>.</p>
+<ol type="1">
+<li><strong>Introduce Latent Variables:</strong> We assume there is a hidden variable <span class="math inline">\(z_j \in \{1, \dots, k\}\)</span> for each data point that tells us which Gaussian component generated it.</li>
+<li><strong>E-Step (Expectation):</strong> Estimate the probability (responsibility) that component <span class="math inline">\(i\)</span> generated point <span class="math inline">\(x_j\)</span> using current parameters.</li>
+<li><strong>M-Step (Maximization):</strong> Update parameters <span class="math inline">\(\pi_i, \mu_i, \Sigma_i\)</span> by maximizing the expected log-likelihood (which <em>is</em> tractable because treating <span class="math inline">\(z\)</span> as known removes the sum inside the log).</li>
+</ol>
+<p><strong>Alternative: Direct Optimization with PyTorch</strong></p>
+<p>While <strong>EM</strong> is the classical statistical approach, in modern ML frameworks like <strong>PyTorch</strong>, we can often solve this using <strong>Gradient Descent</strong>.</p>
+<p>Since the log-likelihood is differentiable, we can treat the negative log-likelihood as a <strong>Loss Function</strong>:</p>
+<p><span class="math display">\[
+\mathcal{L}(\theta) = -\sum_{j=1}^n \ln \left( \sum_{i=1}^k \pi_i \mathcal{N}(x_j | \mu_i, \Sigma_i) \right)
+\]</span></p>
+<p>We can optimize parameters <span class="math inline">\(\theta = \{\pi, \mu, \Sigma\}\)</span> directly using <code>torch.optim.Adam</code>.</p>
+<p><strong>Handling Constraints:</strong> * To ensure <span class="math inline">\(\sum \pi_i = 1\)</span>, we optimize raw scores (logits) and apply <code>softmax</code>. * To ensure <span class="math inline">\(\Sigma_i\)</span> is positive definite, we optimize the Cholesky factor <span class="math inline">\(L\)</span> such that <span class="math inline">\(\Sigma = LL^T\)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
