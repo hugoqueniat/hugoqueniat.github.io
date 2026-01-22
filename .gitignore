@@ -11,3 +11,5 @@ assets/libs/
 node_modules/
 vendor
 .idea
+/.quarto/
+/_site/
