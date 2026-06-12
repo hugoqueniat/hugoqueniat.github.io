@@ -41,6 +41,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-am-delighted-to-announce-that-i-will-be-attending-the-advances-in-mcmc-methods-workshop-at-eurandom-in-eindhoven-taking-place-on-10-12-december-2025-where-i-will-present-a-poster-on-designing-efficient-temperature-proposals-in-simulated-tempering-very-excited-to-learn-about-new-research-developments-and-directions-in-the-mcmc-community",
           title: 'I am delighted to announce that I will be attending the Advances in...',
           description: "",
+          section: "News",},{id: "news-i-will-be-attending-mcqmc-2026-in-edinburgh-taking-place-on-8-12-june-2026-i-am-excited-to-talk-all-things-monte-carlo-and-especially-sampling-from-multimodal-distributions",
+          title: 'I will be attending MCQMC 2026 in Edinburgh, taking place on 8-12 June...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
