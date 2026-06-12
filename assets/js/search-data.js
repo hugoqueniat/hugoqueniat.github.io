@@ -38,6 +38,9 @@ ninja.data = [{
             },},{id: "news-after-a-successful-research-retreat-in-paris-i-will-co-organize-the-acceleration-week-in-warwick-in-september-for-the-ocean-erc-project-bringing-together-researchers-to-discuss-advancements-in-sampling-methods-excited-for-a-week-of-collaboration",
           title: 'After a successful research retreat in Paris, I will co-organize the Acceleration Week...',
           description: "",
+          section: "News",},{id: "news-i-am-delighted-to-announce-that-i-will-be-attending-the-advances-in-mcmc-methods-workshop-at-eurandom-in-eindhoven-taking-place-on-10-12-december-2025-where-i-will-present-a-poster-on-designing-efficient-temperature-proposals-in-simulated-tempering-very-excited-to-learn-about-new-research-developments-and-directions-in-the-mcmc-community",
+          title: 'I am delighted to announce that I will be attending the Advances in...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
