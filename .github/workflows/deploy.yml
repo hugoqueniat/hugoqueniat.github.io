@@ -30,6 +30,7 @@ on:
       - "!FAQ.md"
       - "!INSTALL.md"
       - "!README.md"
+      - "slides/**"
   pull_request:
     branches:
       - master
@@ -59,6 +60,7 @@ on:
       - "!FAQ.md"
       - "!INSTALL.md"
       - "!README.md"
+      - "slides/**"
   workflow_dispatch:
 
 permissions:
@@ -98,6 +100,8 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Copy static slides
+        run: cp -r slides _site/slides
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
