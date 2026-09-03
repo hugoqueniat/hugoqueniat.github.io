@@ -267,6 +267,31 @@ body,
   height: 150px;
 }
 
+#title-slide .title-qr {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+#title-slide .title-qr img {
+  width: 104px;
+  height: 104px;
+  border: 4px solid #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
+}
+
+#title-slide .title-qr span {
+  color: var(--ww-main);
+  font-size: 0.55em;
+  font-weight: 600;
+}
+
 .reveal .slide-menu-button {
   display: none !important;
 }
@@ -940,6 +965,34 @@ body:has(.present.full-video) .reveal .slide-number,
 /* hide the Warwick corner mark while a divider is on screen */
 .reveal .slides > section:has(> section.level1.present)::after {
   display: none;
+}
+
+/* --- Thank-you slide ---------------------------------------------------- */
+.reveal .slides section.slide.thankyou {
+  text-align: center;
+}
+
+.reveal .thankyou h2 {
+  color: var(--ww-main);
+  font-size: 2.2em;
+  font-weight: 400;
+  border: none;
+  margin: 0.15em 0 0.7em;
+}
+
+.reveal .thankyou .qr {
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 0.5em;
+  border: 1px solid var(--ww-rule);
+  border-radius: 8px;
+}
+
+.reveal .thankyou .qr-caption {
+  color: var(--ww-grey);
+  font-size: 0.8em;
+  letter-spacing: 0.02em;
 }
 
 /* --- Outline slide -------------------------------------------------------- */
