@@ -1349,6 +1349,37 @@ margin: 0;
 #title-slide .title-qr { position: absolute; right: 28px; bottom: 22px; display: flex; flex-direction: column; align-items: center; gap: 0.25em; }
 #title-slide .title-qr img { width: 120px; height: 120px; margin: 0; border: 1px solid var(--rule); border-radius: 6px; background: #fff; box-shadow: none; }
 #title-slide .title-qr span { font-size: 0.5em; color: #6c757d; }
+.reveal .eq-stack { position: relative; min-height: 2.2em; margin: 0.4em 0 0.2em; text-align: center; font-size: 0.9em; }
+.reveal .eq-stack .eq-item { position: absolute; left: 0; right: 0; top: 0; }
+.reveal .eq-stack .eq-item p { margin: 0; }
+#title-slide .title-qr img { width: 190px; height: 190px; }
+#title-slide .title-qr span { font-size: 0.6em; }
+.reveal .eq-stack { min-height: 3.2em; }
+.reveal .eq-note { text-align: center; font-size: 0.8em; margin: 0.2em 0 0.3em; }
+.reveal .eq-note p { margin: 0; }
+.reveal .focus-slide .eq-stack { min-height: 2.6em; margin: 0 0 0.1em; font-size: 0.8em; }
+.reveal .focus-slide .eq-note { margin: 0 0 0 !important; font-size: 0.75em; }
+.reveal .focus-slide .mwg-diagram { margin-top: -1.2em; }
+.reveal .focus-slide .eq-stack { min-height: 3.3em; font-size: 0.75em; margin: 0.1em 0 0.2em; }
+.reveal .focus-slide .eq-note { margin-bottom: 0.2em !important; }
+.reveal .focus-slide .mwg-diagram { margin-top: 0; }
+.reveal .focus-slide .eq-stack { min-height: 3.4em; font-size: 1.05em; margin: -0.5em 0 0.1em; }
+.reveal .focus-slide .eq-note { font-size: 0.8em; }
+
+.reveal .deck-figure[src^="data:image/svg"], .reveal .deck-figure[data-src^="data:image/svg"] { width: 100%; height: auto; max-height: 480px; object-fit: contain; }
+.reveal .deck-figure.tall[src^="data:image/svg"], .reveal .deck-figure.tall[data-src^="data:image/svg"] { max-height: 520px; }
+.reveal .deck-figure.huge[src^="data:image/svg"], .reveal .deck-figure.huge[data-src^="data:image/svg"] { max-height: 575px; }
+#title-slide .title-qr img { width: 260px; height: 260px; }
+#title-slide .title-qr span { font-size: 0.7em; }
+#title-slide .title-qr { right: 24px; bottom: 18px; }
+#title-slide .title-qr { right: 14px; bottom: 8px; }
+#title-slide .title-qr img { width: 215px; height: 215px; }
+#title-slide .title-qr span { font-size: 0.6em; }
+#title-slide .title-qr img { width: 175px; height: 175px; }
+.reveal .outcome.takeaway-final { font-size: 1.35em; color: #6a1b9a; margin-top: 1em; }
+.reveal .outcome.takeaway-final .tf-key { color: #c62828; }
+.reveal .outcome.takeaway-final { margin-top: 0.2em !important; font-size: 1.25em; }
+.reveal .outcome.takeaway-final { margin-top: -0.3em !important; }
 </style>
   
   <script>
@@ -26208,6 +26239,14 @@ border-color: rgba(220, 220, 220, 0.3);
 <li><strong>Between-temperature move:</strong> <span class="fragment" data-fragment-index="4"><span class="blue-text">a temperature kernel <span class="math inline">T</span></span></span> <span class="fragment" data-fragment-index="5">that<span class="orange-text"> updates <span class="math inline">\boldsymbol{\beta}</span></span>.</span></li>
 </ul>
 </div>
+<div class="eq-stack">
+<div class="eq-item fragment fade-out" data-fragment-index="1">
+<p><span class="math inline">\bar\pi(\textcolor{#c4cad1}{\beta},\textcolor{#6a1b9a}{x})\;=\;\frac{1}{K+1}\,\frac{\tilde\pi_{\textcolor{#c4cad1}{\beta}}(\textcolor{#6a1b9a}{x})}{\textcolor{#2e7d32}{Z_{\beta}}}\;=\;\frac{1}{K+1}\,\pi_{\textcolor{#c4cad1}{\beta}}(\textcolor{#6a1b9a}{x})</span></p>
+</div>
+<div class="eq-item fragment" data-fragment-index="1">
+<p><span class="math inline">\bar\pi(\textcolor{#ef6c00}{\beta},\textcolor{#c4cad1}{x})\;=\;\frac{1}{K+1}\,\frac{\tilde\pi_{\textcolor{#ef6c00}{\beta}}(\textcolor{#c4cad1}{x})}{\textcolor{#2e7d32}{Z_{\beta}}}\;=\;\frac{1}{K+1}\,\pi_{\textcolor{#ef6c00}{\beta}}(\textcolor{#c4cad1}{x})</span></p>
+</div>
+</div>
 <svg class="mwg-diagram" viewbox="0 52 1200 238" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
     <marker id="mh-grey" viewbox="0 0 10 10" refx="6" refy="5" markerwidth="5" markerheight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c4cad1" /></marker>
@@ -26637,8 +26676,8 @@ Figure 5
 <p><strong>Theorem</strong> <span class="citation" data-cites="queniat2026simulated">[<a href="#/references" role="doc-biblioref" onclick>QRT26+</a>]</span>. <span class="lazy-text"><strong>Lazy Guided Walk</strong></span> dominates <strong>reversibility</strong> for <strong>any</strong> spacing <span class="math inline">\ell</span>.</p>
 </div>
 </section>
-<section id="towards-an-optimal-skew-reversible-temperature-kernel" class="slide level2 opt-slide">
-<h2>Towards an optimal skew-reversible temperature kernel</h2>
+<section id="towards-an-optimal-skew-reversible-kernel" class="slide level2 opt-slide">
+<h2>Towards an optimal skew-reversible kernel</h2>
 <p style="margin:0 0 -0.4em;">
 <b>Efficiency metric:</b>
 </p>
@@ -27016,7 +27055,7 @@ X^{(t+1)} = \textcolor{#ef6c00}{\mu(\beta^{(t)})} + \textcolor{#c62828}{\rho}\bi
 <section id="takeaways" class="slide level2">
 <h2>Takeaways</h2>
 <ul>
-<li><strong>Reversible</strong> temperature kernels hit an <span class="purple-text"><strong>efficiency ceiling</strong></span> — closely approached by <span class="orange-text"><strong>informed proposals</strong></span> (<span class="barker-text">Barker</span>, <span class="sqrt-text"><span class="math inline">\sqrt{\cdot}</span>-balanced</span>).</li>
+<li><span class="orange-text"><strong>Locally-balanced proposals</strong></span> (<span class="barker-text">Barker</span>) approach the optimal <strong>reversible</strong> efficiency.</li>
 </ul>
 <div class="fragment">
 <ul>
@@ -27034,8 +27073,8 @@ X^{(t+1)} = \textcolor{#ef6c00}{\mu(\beta^{(t)})} + \textcolor{#c62828}{\rho}\bi
 </ul>
 </div>
 <div class="fragment">
-<p class="outcome">
-<strong>Simulated Tempering mixing stays inherently bounded</strong>.
+<p class="outcome takeaway-final">
+<strong>Simulated Tempering temperature mixing <span class="tf-key">stays bounded</span></strong>.
 </p>
 </div>
 </section>
