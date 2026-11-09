@@ -44,6 +44,12 @@ ninja.data = [{
           section: "News",},{id: "news-i-will-be-attending-mcqmc-2026-in-edinburgh-taking-place-on-8-12-june-2026-i-am-excited-to-talk-all-things-monte-carlo-and-especially-sampling-from-multimodal-distributions",
           title: 'I will be attending MCQMC 2026 in Edinburgh, taking place on 8-12 June...',
           description: "",
+          section: "News",},{id: "news-delighted-to-share-that-our-paper-annealed-leap-point-sampler-for-multimodal-target-distributions-joint-work-with-nicholas-tawn-matthew-moores-and-gareth-roberts-has-been-published-in-statistics-and-computing",
+          title: 'Delighted to share that our paper Annealed Leap-Point Sampler for Multimodal Target Distributions,...',
+          description: "",
+          section: "News",},{id: "news-very-excited-to-announce-that-i-have-been-selected-to-attend-the-ims-new-researchers-event-in-split-croatia-ahead-of-icsds-2026-where-i-will-then-give-an-invited-talk-on-our-work-on-optimizing-simulated-tempering-proposals-joint-with-gareth-roberts-and-nick-tawn-looking-forward-to-it",
+          title: 'Very excited to announce that I have been selected to attend the IMS...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
